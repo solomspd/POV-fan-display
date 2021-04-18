@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
+   sodipodi:docname="front.svg">
+  <defs
+     id="defs2">
+    <rect
+       x="4.4421892"
+       y="63.959167"
+       width="29.188369"
+       height="37.021255"
+       id="rect925" />
+    <rect
+       x="4.4421892"
+       y="63.959167"
+       width="29.150053"
+       height="13.874998"
+       id="rect911" />
+    <rect
+       x="152.90962"
+       y="134.20926"
+       width="49.718399"
+       height="12.564774"
+       id="rect873" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="297.97959"
+     inkscape:cy="413.15123"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer3"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="2516"
+     inkscape:window-height="1370"
+     inkscape:window-x="1940"
+     inkscape:window-y="46"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <rect
+       style="fill:#999999;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-opacity:1"
+       id="rect882"
+       width="16.004965"
+       height="13.204463"
+       x="27.644762"
+       y="77.95681" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;stroke-width:0.264583"
+       id="rect12"
+       width="49.718395"
+       height="12.564767"
+       x="152.90962"
+       y="134.20926" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 61.260725,121.53547 38.098235,37.5736"
+       id="path20" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.217314;stroke-opacity:1"
+       id="rect24"
+       width="79.295074"
+       height="36.262287"
+       x="42.323734"
+       y="65.398994" />
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26533;stroke-opacity:1"
+       id="rect867"
+       width="8.7838602"
+       height="12.564779"
+       x="144.12576"
+       y="134.20926" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 144.42266,140.97663 H 81.231152 V 84.100682"
+       id="path869" />
+    <text
+       xml:space="preserve"
+       id="text871"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect873);fill:#ffffff;fill-opacity:1;stroke:none;"
+       transform="translate(9.814185,0.67359307)"><tspan
+         x="152.91016"
+         y="143.24712"><tspan
+           style="fill:#ffffff;fill-opacity:1">Laser</tspan></tspan></text>
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:#ffffff;stroke-width:0.264583;stroke-opacity:1"
+       id="rect877"
+       width="29.18837"
+       height="37.021252"
+       x="4.4421892"
+       y="63.959167" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3">
+    <text
+       xml:space="preserve"
+       id="text923"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect925);fill:#ffffff;fill-opacity:1;stroke:none;"
+       transform="translate(2.1681262,0.42522321)"><tspan
+         x="4.4414062"
+         y="69.984433"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Stepper</tspan></tspan></text>
+  </g>
+</svg>

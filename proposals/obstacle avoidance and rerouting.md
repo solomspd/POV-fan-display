@@ -19,6 +19,6 @@ The hardware used, naturally, has limited accuracy; especially the GPS being typ
 - Ultrasonic Sensor & Distance Measurement Module HC-SR04
 - Main board: neucleo STM32L432K
 - IMU MPU6050 "3-Axis Acceleration Gyroscope 6DOF Module" Original
-- Module gyroscope + accelerometer + compass
+- compass module
 - GR-87 GPS Receiver Module 
 - Dagu robot
