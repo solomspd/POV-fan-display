@@ -7,6 +7,8 @@ A microcontroller will be used to drive a 4-wheel car to certain direction based
 ## Challenges 
 
 The rerouting algorithm can prove to be difficult to construct, hence we set out to account for simpler obstacles and have the ability to back track and more complicated avoidance be a stretch goal.
+Calibrating the gyroscope to get the change in angel may be a hard task especially with the huge relative error in the modules found in Egypt. 
+Configuring the GPS on neucleo may also be challenging as we didn’t deal with a GPS before on the embedded level.
 
 ## Limitation
 
