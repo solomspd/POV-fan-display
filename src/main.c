@@ -169,6 +169,8 @@ char font8x8_basic[128][8] = {
 #define LED_5 GPIOA, GPIO_PIN_8
 #define LED_6 GPIOA, GPIO_PIN_11
 #define LED_7 GPIOB, GPIO_PIN_5
+
+#define N_SECTORS 360
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -257,6 +259,9 @@ int main(void)
       HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_1);
     }
     
+    int i;
+    for (i = 0; i < )
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
