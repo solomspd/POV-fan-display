@@ -42,9 +42,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="297.97959"
-     inkscape:cy="413.15123"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="226.92924"
+     inkscape:cy="422.86334"
      inkscape:document-units="mm"
      inkscape:current-layer="layer3"
      inkscape:document-rotation="0"
@@ -62,7 +62,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -76,7 +76,9 @@
        width="16.004965"
        height="13.204463"
        x="27.644762"
-       y="77.95681" />
+       y="77.95681"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
   <g
      inkscape:label="Layer 1"
@@ -88,34 +90,46 @@
        width="49.718395"
        height="12.564767"
        x="152.90962"
-       y="134.20926" />
+       y="134.20926"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 61.260725,121.53547 38.098235,37.5736"
-       id="path20" />
+       id="path20"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.217314;stroke-opacity:1"
        id="rect24"
        width="79.295074"
        height="36.262287"
        x="42.323734"
-       y="65.398994" />
+       y="65.398994"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <rect
        style="fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.26533;stroke-opacity:1"
        id="rect867"
        width="8.7838602"
        height="12.564779"
        x="144.12576"
-       y="134.20926" />
+       y="134.20926"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#ff0000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 144.42266,140.97663 H 81.231152 V 84.100682"
-       id="path869" />
+       id="path869"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <text
        xml:space="preserve"
        id="text871"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect873);fill:#ffffff;fill-opacity:1;stroke:none;"
-       transform="translate(9.814185,0.67359307)"><tspan
+       transform="translate(9.814185,0.67359307)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          x="152.91016"
          y="143.24712"><tspan
            style="fill:#ffffff;fill-opacity:1">Laser</tspan></tspan></text>
@@ -125,7 +139,9 @@
        width="29.18837"
        height="37.021252"
        x="4.4421892"
-       y="63.959167" />
+       y="63.959167"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -135,7 +151,9 @@
        xml:space="preserve"
        id="text923"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect925);fill:#ffffff;fill-opacity:1;stroke:none;"
-       transform="translate(2.1681262,0.42522321)"><tspan
+       transform="translate(2.1681262,0.42522321)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
          x="4.4414062"
          y="69.984433"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Stepper</tspan></tspan></text>
