@@ -27,7 +27,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-char font8x8_basic[128][8] = {
+char ascii[128][8] = {
   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0000 (nul)
   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0001
   { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0002
@@ -171,6 +171,10 @@ char font8x8_basic[128][8] = {
 #define LED_7 GPIOB, GPIO_PIN_5
 
 #define N_SECTORS 360
+#define N_LEDS 8
+
+GPIO_TypeDef *led_port[] = {GPIOA, GPIOB, GPIOB, GPIOB, GPIOB, GPIOA, GPIOA, GPIOB};
+uint16_t led_pin[] = {GPIO_PIN_12, GPIO_PIN_0, GPIO_PIN_7, GPIO_PIN_6, GPIO_PIN_1, GPIO_PIN_8, GPIO_PIN_11, GPIO_PIN_5};
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -207,6 +211,7 @@ void seq_delay(int n) {
 
 uint8_t falling_edge, rdy;
 long ir_time;
+
 /* USER CODE END 0 */
 
 /**
@@ -242,7 +247,9 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   falling_edge = 0xFF;
-  HAL_TIM_Base_Start(&htim1, TIM_CHANNEL_1);
+  rdy = 0;
+  HAL_TIM_Base_Start(&htim1);
+  HAL_TIM_Base_Start(&htim2);
   HAL_TIM_IC_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_1);
   /* USER CODE END 2 */
@@ -252,15 +259,21 @@ int main(void)
   while (1)
   {
     if (rdy) {
-      uint8_t out[30];
+      char out[30];
       int len = sprintf(out, "%d us\n\r", ir_time);
-      HAL_UART_Transmit(&huart2, out, len, HAL_MAX_DELAY);
+      HAL_UART_Transmit(&huart2, (uint8_t*)out, len, HAL_MAX_DELAY);
       rdy = 0;
       HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_1);
     }
     
     int i;
-    for (i = 0; i < )
+    for (i = 0; i < N_SECTORS; i++) {
+      int j;
+      for (j = 0; j < N_LEDS; j++) {
+        HAL_GPIO_WritePin(led_port[j], led_pin[j], (screen[65][i] >> j) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+      }
+      HAL_Delay(5);
+    }
 
     /* USER CODE END WHILE */
 
