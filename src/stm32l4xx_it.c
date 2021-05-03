@@ -207,10 +207,15 @@ void SysTick_Handler(void)
 void TIM1_UP_TIM16_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
+  extern uint8_t screen[N_SECTOR];
+  extern GPIO_TypeDef *led_port[];
+  extern uint16_t led_pin[];
+  extern int cur_sector;
   int i;
   for (i = 0; i < N_LED; i++) {
-    
+    HAL_GPIO_WritePin(led_port[i], led_pin[i], (screen[cur_sector] >> i) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
   }
+  cur_sector++;
   /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
