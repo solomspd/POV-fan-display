@@ -267,10 +267,10 @@ int main(void)
     }
     
     int i;
-    for (i = 0; i < N_LEDS; i++) {
+    for (i = 0; i < N_SECTORS; i++) {
       int j;
       for (j = 0; j < N_LEDS; j++) {
-        HAL_GPIO_WritePin(led_port[j], led_pin[j], (ascii[65][i] >> j) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(led_port[j], led_pin[j], (screen[i] >> j) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
       }
       seq_delay(1000);
     }
