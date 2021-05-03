@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+
+#include "consts.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -161,17 +163,6 @@ char ascii[128][8] = {
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LED_0 GPIOA, GPIO_PIN_12
-#define LED_1 GPIOB, GPIO_PIN_0
-#define LED_2 GPIOB, GPIO_PIN_7
-#define LED_3 GPIOB, GPIO_PIN_6
-#define LED_4 GPIOB, GPIO_PIN_1
-#define LED_5 GPIOA, GPIO_PIN_8
-#define LED_6 GPIOA, GPIO_PIN_11
-#define LED_7 GPIOB, GPIO_PIN_5
-
-#define N_SECTORS 360
-#define N_LEDS 8
 
 GPIO_TypeDef *led_port[] = {GPIOA, GPIOB, GPIOB, GPIOB, GPIOB, GPIOA, GPIOA, GPIOB};
 uint16_t led_pin[] = {GPIO_PIN_12, GPIO_PIN_0, GPIO_PIN_7, GPIO_PIN_6, GPIO_PIN_1, GPIO_PIN_8, GPIO_PIN_11, GPIO_PIN_5};
@@ -211,7 +202,7 @@ void seq_delay(int n) {
 
 uint8_t falling_edge, rdy;
 long ir_time;
-
+int cur_sector;
 /* USER CODE END 0 */
 
 /**
@@ -248,9 +239,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   falling_edge = 0xFF;
   rdy = 0;
-  HAL_TIM_Base_Start(&htim1);
-  HAL_TIM_Base_Start(&htim2);
-  HAL_TIM_IC_Start(&htim1, TIM_CHANNEL_1);
+  cur_sector = 0;
+  HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_1);
   /* USER CODE END 2 */
 
@@ -267,12 +257,12 @@ int main(void)
     }
     
     int i;
-    for (i = 0; i < N_SECTORS; i++) {
+    for (i = 0; i < N_SECTOR; i++) {
       int j;
-      for (j = 0; j < N_LEDS; j++) {
+      for (j = 0; j < N_LED; j++) {
         HAL_GPIO_WritePin(led_port[j], led_pin[j], (screen[i] >> j) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
       }
-      seq_delay(1000);
+      // seq_delay(1000);
     }
 
     /* USER CODE END WHILE */
@@ -358,7 +348,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 79;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 0xFFFF;
+  htim1.Init.Period = 65535;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
