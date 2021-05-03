@@ -23,6 +23,7 @@
 #include "stm32l4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "consts.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -201,30 +202,25 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles TIM1 trigger and commutation interrupts.
+  * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
   */
-void TIM1_TRG_COM_IRQHandler(void)
+void TIM1_UP_TIM16_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_TRG_COM_IRQn 0 */
-
-  /* USER CODE END TIM1_TRG_COM_IRQn 0 */
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
+  extern uint8_t screen[N_SECTOR];
+  extern GPIO_TypeDef *led_port[];
+  extern uint16_t led_pin[];
+  extern int cur_sector;
+  int i;
+  for (i = 0; i < N_LED; i++) {
+    HAL_GPIO_WritePin(led_port[i], led_pin[i], (screen[cur_sector] >> i) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  }
+  cur_sector++;
+  /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_TRG_COM_IRQn 1 */
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
 
-  /* USER CODE END TIM1_TRG_COM_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM1 capture compare interrupt.
-  */
-void TIM1_CC_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_CC_IRQn 0 */
-  /* USER CODE END TIM1_CC_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_CC_IRQn 1 */
-
-  /* USER CODE END TIM1_CC_IRQn 1 */
+  /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
 }
 
 /**
@@ -237,10 +233,15 @@ void TIM2_IRQHandler(void)
 	extern uint8_t rdy;
 	extern long ir_time;
 	if (falling_edge) {
-		ir_time = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2);
+		ir_time = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
 	} else {
-		ir_time = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_2) - ir_time;
-		__HAL_TIM_DISABLE_IT(&htim2, TIM_CHANNEL_2);
+    int end = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+    if (end < ir_time) { // incase counter overflows between captures
+      ir_time = (__HAL_TIM_GET_AUTORELOAD(&htim2) - ir_time) + end;
+    } else {
+		  ir_time = end - ir_time;
+    }
+    HAL_TIM_IC_Stop_IT(&htim2, TIM_CHANNEL_1);
 		rdy = 0xFF;
 	}
 	falling_edge = ~falling_edge;
