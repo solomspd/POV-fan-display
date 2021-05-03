@@ -267,12 +267,12 @@ int main(void)
     }
     
     int i;
-    for (i = 0; i < N_SECTORS; i++) {
+    for (i = 0; i < N_LEDS; i++) {
       int j;
       for (j = 0; j < N_LEDS; j++) {
-        HAL_GPIO_WritePin(led_port[j], led_pin[j], (screen[65][i] >> j) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(led_port[j], led_pin[j], (ascii[65][i] >> j) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
       }
-      HAL_Delay(5);
+      seq_delay(1000);
     }
 
     /* USER CODE END WHILE */
@@ -358,7 +358,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 79;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 0;
+  htim1.Init.Period = 0xFFFF;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
