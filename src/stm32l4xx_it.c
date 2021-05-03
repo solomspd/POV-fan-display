@@ -230,7 +230,12 @@ void TIM2_IRQHandler(void)
 	if (falling_edge) {
 		ir_time = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
 	} else {
-		ir_time = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1) - ir_time;
+    int end = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+    if (end < ir_time) { // incase counter overflows between captures
+      ir_time = (__HAL_TIM_GET_AUTORELOAD(&htim2) - ir_time) - end;
+    } else {
+		  ir_time = end - ir_time;
+    }
     HAL_TIM_IC_Stop_IT(&htim2, TIM_CHANNEL_1);
 		rdy = 0xFF;
 	}
