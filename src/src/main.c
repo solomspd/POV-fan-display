@@ -255,7 +255,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  char txt[] = "Hello world";
+  char txt[] = "Hello World";
 
 	int i;
   int j;
@@ -267,6 +267,7 @@ int main(void)
       screen[cnt++] = ascii[(uint8_t)txt[i]][j];
     }
   }
+
   while (1)
   {
     /* USER CODE END WHILE */

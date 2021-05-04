@@ -247,9 +247,7 @@ void TIM2_IRQHandler(void)
     ir_prev = ir_new;
     __HAL_TIM_SET_AUTORELOAD(&htim1, ir_time/N_SECTOR);
     HAL_TIM_Base_Start_IT(&htim1);
-
-    extern UART_HandleTypeDef huart2;
-    HAL_UART_Transmit(&huart2, "works", sizeof("works"), HAL_MAX_DELAY);
+    __HAL_TIM_SET_COUNTER(&htim1, 0);
     cur_sector = 0;
   }
   /* USER CODE END TIM2_IRQn 0 */
