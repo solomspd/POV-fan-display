@@ -23,6 +23,8 @@ The ESP32 will also serve the front end to the user in the form of a webpage whe
 Beyond the blade, the DC motor is operates using a motor driver so that we can control its speed.
 This speed control is carried out very simply with an arduino that is only there to supply the motor driver with a PWM signal so we can dynamically change the speed of the motor.
 
+![architecture of system](https://github.com/solomspd/Embedded-Project-2/blob/master/proposals/schematic.png)
+
 ## Challenges
 - A clear challenge in accomplishing this is a mechanical one; getting the hardware physically conifugred correctly and ensuring stability at high speeds.
 - Synchronizing the display with the period of a single revolution of the motor so the image can apear to stay in place.
