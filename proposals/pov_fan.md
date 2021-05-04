@@ -38,7 +38,7 @@ This speed control is carried out very simply with an arduino that is only there
 
 - [DC motor 13k rpm](https://ram-e-shop.com/product/dc-12v-80w-13000rpm-775-motor/)
 - [Motor Driver](https://ram-e-shop.com/product/kit-l298-red/)
-- [Stand and Blade](custom fabricated)
+- Stand and Blade (custom fabricated)
 - [IR sensor](https://ram-e-shop.com/product/kit-object-ir/)
 - [LEDs](https://ram-e-shop.com/product/led-rr/)
 - Nucleo STM32L432KC
