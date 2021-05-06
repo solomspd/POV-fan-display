@@ -259,9 +259,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="449.50335"
-     inkscape:cy="596.30002"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="340.0694"
+     inkscape:cy="607.80219"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -286,7 +286,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer7"
-     inkscape:label="Layer 3">
+     inkscape:label="Layer 3"
+     style="display:inline">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 59.885381,160.53452 H 74.714578"
@@ -312,7 +313,7 @@
          d="M 136.93445,95.511992 V 91.176903"
          id="path943-6" />
       <rect
-         style="fill:#ff0000;stroke:#9e5233;stroke-width:0.264999;stroke-opacity:0;fill-opacity:1"
+         style="fill:#ff0000;fill-opacity:1;stroke:#9e5233;stroke-width:0.264999;stroke-opacity:0"
          id="rect968"
          width="4.908494"
          height="4.908494"
@@ -330,7 +331,7 @@
          ry="0"
          rx="0" />
       <rect
-         style="fill:#b77e39;stroke:none;stroke-width:0.264999;fill-opacity:1;stroke-opacity:0"
+         style="fill:#b77e39;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-opacity:0"
          id="rect945"
          width="2.189394"
          height="6.7743855"
@@ -347,7 +348,7 @@
            id="tspan1338"
            x="88.598289"
            y="-146.07303"
-           style="stroke-width:0.0399147;fill:#ffffff;fill-opacity:1;">220 Ω</tspan></text>
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.0399147">220 Ω</tspan></text>
       <text
          xml:space="preserve"
          id="text1677-3"
@@ -800,7 +801,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer8"
-     inkscape:label="Layer 4">
+     inkscape:label="Layer 4"
+     style="display:inline">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.220524px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 168.20065,185.10202 V 134.39003"
@@ -815,9 +817,7 @@
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><textPath
          xlink:href="#path2437"
-         id="textPath2460"><tspan
-           id="tspan2453"
-           style="stroke-width:0.264583">Uart</tspan></textPath></text>
+         id="textPath2460">I2C</textPath></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.173185px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 153.90352,231.76642 c -1.89545,12.82965 11.92908,12.15467 12.31426,11.54571"
@@ -839,13 +839,13 @@
     <text
        xml:space="preserve"
        id="text2494"
-       style="font-style:normal;font-weight:normal;font-size:4.93888889px;line-height:1.25;font-family:sans-serif;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"><textPath
          xlink:href="#path2463-7"
          id="textPath2500"><tspan
            id="tspan2498"
-           style="-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:4.93888889px;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;">Wifi</tspan></textPath></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">Wifi</tspan></textPath></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -915,13 +915,13 @@
          id="tspan2932-6">9V</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 175.93809,137.4394 v 21.8321 l 0,27.66217"
+       d="m 175.93809,137.4394 v 21.8321 27.66217"
        id="path2999"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 173.5286,186.68465 v -23.30554 l 0,-25.94005"
+       d="M 173.5286,186.68465 V 163.37911 137.43906"
        id="path3001"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
@@ -935,7 +935,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline">
     <rect
        style="fill:#ffffff;fill-opacity:0.00137999;stroke:#000000;stroke-width:0.296709;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect3038-4"
@@ -1107,5 +1108,6 @@
   <g
      inkscape:groupmode="layer"
      id="layer6"
-     inkscape:label="Layer 2" />
+     inkscape:label="Layer 2"
+     style="display:inline" />
 </svg>
