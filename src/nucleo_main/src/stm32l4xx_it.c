@@ -23,7 +23,6 @@
 #include "stm32l4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdlib.h>
 #include "consts.h"
 /* USER CODE END Includes */
 
@@ -208,18 +207,6 @@ void SysTick_Handler(void)
 void TIM1_UP_TIM16_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
-  extern uint8_t screen[N_SECTOR];
-  extern GPIO_TypeDef *led_port[];
-  extern uint16_t led_pin[];
-  extern int cur_sector;
-  int i;
-  for (i = 0; i < N_LED; i++) {
-    HAL_GPIO_WritePin(led_port[i], led_pin[i], (screen[cur_sector] >> i) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
-  }
-  cur_sector++;
-  if (cur_sector == N_SECTOR - 1) {
-    HAL_TIM_Base_Stop_IT(&htim1);
-  }
   /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
@@ -233,23 +220,6 @@ void TIM1_UP_TIM16_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-	extern long ir_new, ir_prev, ir_time;
-  extern int cur_sector;
-
-  ir_new = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
-  // debounce IR sensor
-  if (abs(ir_new - ir_prev) > DEBOUNCE) {
-    if (ir_prev < ir_new) { // in case counter overflows between captures
-      ir_time = (__HAL_TIM_GET_AUTORELOAD(&htim2) - ir_prev) + ir_new;
-    } else {
-      ir_time = ir_new - ir_prev;
-    }
-    ir_prev = ir_new;
-    __HAL_TIM_SET_AUTORELOAD(&htim1, ir_time/N_SECTOR);
-    HAL_TIM_Base_Start_IT(&htim1);
-    __HAL_TIM_SET_COUNTER(&htim1, 0);
-    cur_sector = 0;
-  }
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */

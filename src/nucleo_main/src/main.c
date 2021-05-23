@@ -23,14 +23,13 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "consts.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
-#define MESSAGE   "HELLO!"
 
 uint8_t ascii[128][8] = {
   {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0000 (nul)
@@ -167,8 +166,6 @@ uint8_t ascii[128][8] = {
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 GPIO_TypeDef *led_port[] = {GPIOA, GPIOB, GPIOB, GPIOB, GPIOB, GPIOA, GPIOA, GPIOB};
-
-                           
 uint16_t led_pin[] = {GPIO_PIN_12, GPIO_PIN_0, GPIO_PIN_7, GPIO_PIN_6, GPIO_PIN_1, GPIO_PIN_8, GPIO_PIN_11, GPIO_PIN_5};
 
 
@@ -196,20 +193,49 @@ static void MX_TIM1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void seq_delay(int n) {
-  __HAL_TIM_SET_COUNTER(&htim1, 0);
-  while (__HAL_TIM_GET_COUNTER(&htim1) < n) {};
-}
-
-uint8_t screen[N_SECTOR];
+uint8_t *screen;
+uint8_t buff1[N_SECTOR];
+uint8_t buff2[N_SECTOR];
 uint8_t falling_edge, rdy;
 int cur_sector;
 long ir_new, ir_prev, ir_time;
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+  if (htim == &htim1) {
+    int i;
+    for (i = 0; i < N_LED; i++) {
+      HAL_GPIO_WritePin(led_port[i], led_pin[i], (screen[cur_sector] >> i) & 1 ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    }
+    cur_sector++;
+    if (cur_sector == N_SECTOR - 1) {
+      HAL_TIM_Base_Stop_IT(&htim1);
+    }
+  }
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+  if (htim == &htim2) {
+    ir_new = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+    // debounce IR sensor
+    if (abs(ir_new - ir_prev) > DEBOUNCE) {
+      if (ir_prev < ir_new) { // in case counter overflows between captures
+        ir_time = (__HAL_TIM_GET_AUTORELOAD(&htim2) - ir_prev) + ir_new;
+      } else {
+        ir_time = ir_new - ir_prev;
+      }
+      ir_prev = ir_new;
+      __HAL_TIM_SET_AUTORELOAD(&htim1, ir_time/N_SECTOR);
+      HAL_TIM_Base_Start_IT(&htim1);
+      __HAL_TIM_SET_COUNTER(&htim1, 0);
+      cur_sector = 0;
+    }
+  }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -248,9 +274,10 @@ int main(void)
   ir_prev = 0;
   ir_time = 0;
   cur_sector = 0;
+  screen = buff1;
   HAL_TIM_Base_Start_IT(&htim1);
   HAL_TIM_IC_Start_IT(&htim2, TIM_CHANNEL_1);
-  __HAL_TIM_SET_CAPTUREPOLARITY(&htim2, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_FALLING);
+  __HAL_TIM_SET_CAPTUREPOLARITY(&htim2, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_RISING);
   /* USER CODE END 2 */
 
   /* Infinite loop */
