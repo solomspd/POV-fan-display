@@ -312,11 +312,12 @@ int main(void)
   {
     if (HAL_I2C_Slave_Receive(&hi2c1, i2c_str, 25, HAL_MAX_DELAY) == HAL_OK) {
       HAL_UART_Transmit(&huart2, i2c_str, sizeof(i2c_str), HAL_MAX_DELAY);
-      for (i = 0; i < sizeof(i2c_str); i++)
+      cnt = 0;
+      for (i = 0; i < 25; i++)
       {
         for(j = 0; j < CHAR_W; j++)
         {
-          i2c_buff[cnt++] = ascii[(uint8_t)txt[i]][j];
+          i2c_buff[cnt++] = ascii[(uint8_t)i2c_str[i]][j];
         }
       }
       flip = 0xFF;
